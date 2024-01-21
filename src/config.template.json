@@ -1,0 +1,11 @@
+{
+  "appName": "",
+  "apiUrl": "http://localhost:4200/api",
+  "staticPagesUrl": "/assets",
+  "auth": {
+    "google": {
+      "clientId": "your_Google_app_client_id",
+      "scopes": "openid profile email"
+    }
+  }
+}

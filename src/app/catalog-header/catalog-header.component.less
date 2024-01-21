@@ -1,0 +1,29 @@
+@import "../common";
+.container {
+  display: block flex;
+  background-color: @color-light-gray-semi-transparent;
+  .categories {
+    flex: 1 1 auto;
+    .nav-horizontal;
+    .text_style_level1;
+    margin: @half-unit @unit @half-unit 5 * @half-unit;
+    padding: @zero-unit;
+    li {
+      a {
+        cursor: pointer;
+      }
+    }
+  }
+  .search-control {
+    flex: 1 1 auto;
+    vertical-align: middle;
+    text-align: right;
+    margin: @half-unit  5 *@unit @half-unit @half-unit;
+    padding-right: @zero-unit;
+    input[type=text] {
+      min-width: 60%;
+      height: 2 * @unit;
+      .text_style_level1
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<div class="container" (click)="clickListener(order.id)">
+  <h4 class="title">{{orderTitle}}</h4>
+  <div class="total-items">Total items: {{totalItems}}</div>
+  <div *ngFor="let entity of order.products">
+    <h5>{{entity.productName}}</h5>
+    <div class="quantity">Quantity: {{entity.quantity}}</div>
+    <div class="total-price">Total price: ${{entity.totalPrice}}</div>
+    <div class="controls">
+      <button [disabled]="!entity.inStock" (click)="buyAgainListener(entity.productId)">Buy it again</button>
+    </div>
+  </div>
+</div>

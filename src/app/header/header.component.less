@@ -1,0 +1,67 @@
+@import "../common";
+
+header {
+  display: flex;
+  .logo {
+    flex: 0 0 auto;
+    img {
+      width: 3 * @unit;
+    }
+  }
+  .app-title {
+    flex: 1 1 auto;
+    .app_title_style;
+    vertical-align: bottom;
+    padding: @half-unit (3 * @half-unit);
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  nav {
+    flex: 2 1 50%;
+    text-align: justify;
+    padding: @zero-unit;
+    .nav-horizontal();
+    .menu_style_level1();
+    ul {
+      display: inline-block;
+      li {
+        margin: @zero-unit;
+        padding: @zero-unit;
+        a {
+          margin: @quarter-unit;
+          padding: @half-unit;
+          &.active {
+            background-color: @color-light-gray-semi-transparent;
+          }
+        }
+      }
+    }
+
+    .cart-control {
+      vertical-align: bottom;
+      display: inline-block;
+      background-image: url("../../assets/shopping_cart.svg");
+      background-attachment: initial;
+      background-size: cover;
+      width: 4 * @half-unit;
+      height: 4 * @half-unit;
+      .cart-quantity {
+        display: block;
+        position: relative;
+        left: @unit;
+        top: -@half-unit;
+        width: @unit;
+        height: @unit;
+        border-radius: @half-unit;
+        .border-light;
+        .text_style_level2;
+        text-align: center;
+        vertical-align: middle;
+        color: @color-gray;
+        background-color: @color-white-semi-transparent;
+      }
+    }
+  }
+}

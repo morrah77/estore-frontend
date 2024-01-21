@@ -1,0 +1,18 @@
+@import "app/common";
+html, body {
+  min-height: 100vh;
+  position: relative;
+  app-root, app-sign-in-or-register, app-home, app-cart, app-static, app-orders, app-user-profile {
+    display: block;
+    min-height: 100vh;
+    position: relative;
+    main {
+      padding-bottom: 4 * @unit;
+    }
+
+    app-footer {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}

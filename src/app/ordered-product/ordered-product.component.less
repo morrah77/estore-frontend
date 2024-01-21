@@ -1,0 +1,59 @@
+@import "../common";
+
+.container {
+  display: flex;
+  .main-image-container {
+    flex: 1 1 100%;
+    display: block;
+    float: left;
+    width: 8 * @unit;
+    height: 6 * @unit;
+    text-align: center;
+    vertical-align: center;
+    img.main {
+      object-fit: contain;
+      width: 100%;
+      .border-light
+    }
+  }
+  .info-container {
+    flex: 2 1 100%;
+    .title {
+      .text_style_level1
+    }
+
+    .price-quantity-container {
+      text-align: center;
+      .price {
+        .text_style_level1
+      }
+
+      label {
+        display: inline-block;
+        .text_style_level2
+      }
+
+      input[type=number] {
+        display: inline-block;
+        height: 2 * @unit;
+        width: 8 * @unit;
+        .text_style_level1;
+      }
+
+      .update-cart-button {
+        display: inline-block;
+      }
+    }
+  }
+  .controls {
+    flex: 1 1 100%;
+    float: right;
+    .border-hard;
+    .total-price {
+
+    }
+    .delete-from-cart-button {
+
+    }
+  }
+}

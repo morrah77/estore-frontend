@@ -1,0 +1,32 @@
+<div *ngIf="isNotDeleted" class="container">
+  <div class="main-image-container">
+    <img class="main" src="{{productImage}}" alt="{{entity.product.title}}">
+  </div>
+
+  <div class="info-container">
+
+    <h4 class="title">{{entity.product.title}}</h4>
+
+    <div class="price-quantity-container">
+      <div class="price">{{displayProductPrice}}</div>
+      <label for="quantity">Quantity:</label>
+      <input id="quantity" type="number" #quantityInput value="{{qValue}}"
+             (input)="setQuantity(quantityInput.value)">
+
+      <button [disabled]="isUpdateCartDisabled()" type="button" class="update-cart-button" clickable title="Update cart"
+              (click)="quantityChangeListener(entity.product.id, entity.quantity)">
+        Update cart
+      </button>
+
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="total-price">Total price: ${{totalPrice}}</div>
+    <button [disabled]="isDeleteFromCartDisabled()" type="button" class="delete-from-cart-button" clickable
+            title="Delete from cart"
+            (click)="deleteFromCart(entity.product.id)">Delete from cart
+    </button>
+  </div>
+
+</div>

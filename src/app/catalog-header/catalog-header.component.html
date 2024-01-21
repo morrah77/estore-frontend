@@ -1,0 +1,13 @@
+<div class="container">
+  <ul class="categories">
+    <li>
+      <a (click)="allCategoriesClickListener()">All</a>
+    </li>
+    <li *ngFor="let item of categories">
+      <a (click)="categoryClickListener(item.id)">{{item.title}}</a>
+    </li>
+  </ul>
+  <div class="search-control">
+    <input #search type="text" placeholder="search..." (input)="searchInputListener(search.value)">
+  </div>
+</div>

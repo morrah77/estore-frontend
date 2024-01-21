@@ -1,0 +1,6 @@
+<div class="container" (click)="clickListener(product.id)">
+  <div class="title">{{product.title}}</div>
+  <img *ngIf="product.images.length > 0" src="{{product.images[0]}}" alt="{{product.title}}">
+  <img *ngIf="product.images.length <= 0" src="assets/images/no_image.svg" alt="{{product.title}} (no image)">
+  <div class="price" *ngIf="product.numberInStock > 0">${{product.price}}</div>
+</div>

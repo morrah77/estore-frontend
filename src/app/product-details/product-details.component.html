@@ -1,0 +1,35 @@
+<div class="popup" (click)="closeListener()">
+  <div class="container" (click)="$event.stopPropagation()">
+    <button type="button" class="closeButton" clickable title="Close" (click)="closeListener()"></button>
+    <div class="images">
+      <div class="main-image-container">
+        <img class="main" *ngIf="product.images.length > 0" src="{{currentImage}}" alt="{{product.title}}">
+      </div>
+      <div class="images-list">
+        <img *ngFor="let image of product.images" src="{{image}}" (click)="setCurrentImage(image)" alt="{{product.title}}">
+      </div>
+    </div>
+    <div class="details">
+      <div class="title">{{product.title}}</div>
+      <div class="description" [innerHTML]="product.description"></div>
+      <div class="price" *ngIf="product.numberInStock > 0">Price: ${{product.price}}</div>
+      <div class="controls" *ngIf="product.numberInStock > 0">
+        <div class="quantity-container">
+          <label for="quantity">Quantity:</label>
+          <input id="quantity" type="number" #quantityInput value="{{qValue}}"
+                 (input)="setQuantity(quantityInput.value)">
+          <button [disabled]="isDeleteFromCartDisabled()" type="button" class="delete-from-cart-button" clickable
+                  title="Delete from cart"
+                  (click)="deleteFromCart(product.id)">
+          </button>
+        </div>
+        <div class="total-price">Total price: ${{totalPrice}}</div>
+        <button [disabled]="isAddToCartDisabled()" type="button" class="add-to-cart-button" clickable title="Add to cart"
+                (click)="addToCart(product.id, currentQuantity)">
+          Add to cart
+        </button>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>

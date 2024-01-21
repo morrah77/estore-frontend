@@ -1,0 +1,44 @@
+<header>
+  <a [routerLink]="['/home']">
+    <div class="logo">
+      <img src="assets/images/logo.svg" alt="Logo">
+    </div>
+  </a>
+  <div *ngIf="appName" class="app-title">
+    <a [routerLink]="['/home']">{{appName}}</a>
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <a [routerLink]="['/home']" routerLinkActive="active" title="Home">Home</a>
+      </li>
+      <li>
+        <a [routerLink]="['/about']" routerLinkActive="active" title="About">About</a>
+      </li>
+      <li>
+        <a [routerLink]="['/contacts']" routerLinkActive="active" title="Contacts">Contacts</a>
+      </li>
+      <li *ngIf="isLoggedIn">
+        <a class='orders-control' [routerLink]="['/orders']" routerLinkActive="active" title="Orders">Orders</a>
+      </li>
+
+      <li *ngIf="!isLoggedIn">
+        <a class='user-link' [routerLink]="['/sign-in']" routerLinkActive="active" title="Sign in or register">Sign in</a>
+      </li>
+      <li *ngIf="isLoggedIn">
+        <a class='user-link' [routerLink]="['/sign-out']" routerLinkActive="active" title="Sign out">Sign out</a>
+      </li>
+      <li *ngIf="isLoggedIn">
+        <a class='user-link' [routerLink]="['/profile']" routerLinkActive="active" title="Profile">Hello, {{userName}}</a>
+      </li>
+
+      <li>
+        <a class='cart-control' [routerLink]="['/cart']" routerLinkActive="active" title="Cart">
+          <div *ngIf="itemsInCartQuantity > 0" class="cart-quantity">{{itemsInCartQuantity}}</div>
+        </a>
+
+      </li>
+    </ul>
+  </nav>
+</header>
+

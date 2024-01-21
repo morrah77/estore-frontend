@@ -1,0 +1,12 @@
+<app-header></app-header>
+<main>
+  <div *ngIf="!isLoggedIn" class="sign-in">
+    <p>Please sign in or register.</p>
+    <button type="button" clickable (click)="clickSignInButton()">Sign in with Google</button>
+  </div>
+  <div *ngIf="isLoggedIn" class="sign-out">
+    <p *ngIf="isLoggedIn">Logged in.</p>
+    <button type="button" clickable (click)="clickSignOutButton()">Sign out</button>
+  </div>
+</main>
+<app-footer></app-footer>

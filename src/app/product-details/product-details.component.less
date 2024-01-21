@@ -1,0 +1,116 @@
+@import "../common";
+.popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  vertical-align: center;
+  background-color: @color-light-gray-semi-transparent;
+  overflow: scroll;
+  .container {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 5%;
+    bottom: 5%;
+    overflow-y: auto;
+    min-width: 15 * @unit;
+    max-width: 90%;
+    min-height: 10 * @unit;
+    background-color: @color-white;
+    .closeButton {
+      display: block;
+      width: 3 * @unit;
+      height: 3 * @unit;
+      background-image: url("../../assets/images/close.svg");
+      background-size: cover;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .images {
+      display: block;
+      float: left;
+      .border-hard;
+      margin: 2* @unit @unit 2 * @unit 3 * @unit;
+      padding: @half-unit;
+      .main-image-container {
+        height: 20 * @unit;
+        width: 20 * @unit;
+        img.main {
+          object-fit: contain;
+          width: 100%;
+          .border-light
+        }
+      }
+
+      .images-list {
+        float: none;
+        height: 8 * @unit;
+        width: 20 * @unit;
+        overflow-x: auto;
+        white-space: nowrap;
+        img {
+          height: 6 * @unit;
+          .border-hard
+        }
+      }
+
+    }
+    .details {
+      display: block;
+      float: right;
+      min-height: 80%;
+      .border-hard;
+      margin: 2 * @unit 4 * @unit 2 * @unit @unit;
+      padding: @half-unit;
+      .title {
+        .text_style_level1
+      }
+      .description {
+        .text_style_level2
+      }
+      .price {
+        .text_style_level1
+      }
+      .controls {
+        .quantity-container {
+          text-align: center;
+          padding: @half-unit @zero-unit;
+          label {
+            display: inline-block;
+            .text_style_level1
+          }
+          input[type=number] {
+            display: inline-block;
+            height: 2 * @unit;
+            width: 8 * @unit;
+            .text_style_level1;
+          }
+          .delete-from-cart-button {
+            display: inline-block;
+            vertical-align: bottom;
+            width: 3 * @unit;
+            height: 3 * @unit;
+            background-image: url("../../assets/images/delete.svg");
+            background-size: cover;
+            margin: @zero-unit @unit;
+            padding: @zero-unit;
+          }
+        }
+        .total-price {
+          .text_style_level1
+        }
+        .add-to-cart-button {
+          min-width: 4 * @unit;
+          min-height: 2 * @unit;
+          margin: @unit;
+          padding: @unit;
+        }
+
+      }
+    }
+  }
+}

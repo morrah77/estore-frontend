@@ -1,0 +1,25 @@
+@import "../common";
+.container {
+  display: inline-block;
+  width: 24 * @unit;
+  height: 16 * @unit;
+  margin: @half-unit;
+  padding: @zero-unit;
+  text-align: center;
+  vertical-align: center;
+  .border-light;
+  cursor: pointer;
+  &:hover {
+    background-color: @color-light-gray-semi-transparent;
+  }
+  .title {
+    .text_style_level1();
+  }
+  img {
+    width: 18 * @unit;
+    height: 12 * @unit;
+  }
+  .price {
+    .text_style_level1();
+  }
+}
