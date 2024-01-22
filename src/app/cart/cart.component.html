@@ -1,17 +1,13 @@
-<app-header></app-header>
-<main>
-  <div class="container">
-    <div class="items-container">
-      <div *ngIf="isEmpty" class="no-items-message">The cart is empty</div>
-      <div *ngFor="let orderedProduct of orderedProducts">
-        <app-ordered-product [entity]="orderedProduct" [quantityChangeListener]="updateQuantity"
-                             [deleteFromCartListener]="deleteFromCart"></app-ordered-product>
-      </div>
+<div class="container">
+  <div class="items-container">
+    <div *ngIf="isEmpty" class="no-items-message">The cart is empty</div>
+    <div *ngFor="let orderedProduct of orderedProducts">
+      <app-ordered-product [entity]="orderedProduct" [quantityChangeListener]="updateQuantity"
+                           [deleteFromCartListener]="deleteFromCart"></app-ordered-product>
     </div>
-
-    <app-cart-checkout></app-cart-checkout>
-
-    <div class="clear"></div>
   </div>
-</main>
-<app-footer></app-footer>
+
+  <app-cart-checkout></app-cart-checkout>
+
+  <div class="clear"></div>
+</div>

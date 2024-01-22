@@ -1,10 +1,6 @@
-<app-header></app-header>
-<main>
-  <div class="container">
-    <p *ngIf="userInfo">{{userInfo.id}}</p>
-    <p *ngIf="userInfo">{{userInfo.name}}</p>
-    <p *ngIf="userInfo">{{userInfo.email}}</p>
-    <p *ngIf="!userInfo">No user information available</p>
-  </div>
-</main>
-<app-footer></app-footer>
+<div class="container">
+  <p *ngIf="userInfo">{{userInfo.id}}</p>
+  <p *ngIf="userInfo">{{userInfo.name}}</p>
+  <p *ngIf="userInfo">{{userInfo.email}}</p>
+  <p *ngIf="!userInfo">No user information available</p>
+</div>

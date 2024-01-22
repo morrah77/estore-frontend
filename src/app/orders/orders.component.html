@@ -1,8 +1,4 @@
-<app-header></app-header>
-<main>
-  <div class="container">
-    <app-order *ngFor="let order of orders" [order]="order" [clickListener]="orderClickListener"
-    [buyAgainListener]="buyProductAgainListener"></app-order>
-  </div>
-</main>
-<app-footer></app-footer>
+<div class="container">
+  <app-order *ngFor="let order of orders" [order]="order" [clickListener]="orderClickListener"
+  [buyAgainListener]="buyProductAgainListener"></app-order>
+</div>

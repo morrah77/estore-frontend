@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Config} from "./models/config";
 import {HttpClient} from "@angular/common/http";
-import {catchError, map, Observable, throwError, from} from "rxjs";
+import {catchError, Observable, tap, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -30,9 +30,8 @@ export class ConfigService {
     )
       .pipe(
         catchError(err => throwError(()  => err)),
-        map(res => {
+        tap(res => {
           this.config = res as Config
-          return res
         })
       )
   }

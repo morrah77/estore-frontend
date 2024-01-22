@@ -1,9 +1,11 @@
-<app-catalog-header [categories]="categories" [categoryClickListener]="selectCategory"
+<div class="container">
+  <app-catalog-header [categories]="categories" [categoryClickListener]="selectCategory"
                     [allCategoriesClickListener]="getAllProducts" [searchInputListener]="search"></app-catalog-header>
-<div class="products">
-  <app-product *ngFor="let item of products" [product]="item" [clickListener]="getProductDetails"></app-product>
+  <div class="products">
+    <app-product *ngFor="let item of products" [product]="item" [clickListener]="getProductDetails"></app-product>
+  </div>
+  <app-product-details *ngIf="selectedProduct != null" [product]="selectedProduct"
+                       [quantity]="selectedProductQuantityInCart"
+                       [closeListener]="closeProductDetails" [addToCartListener]="addToCart"
+                       [deleteFromCartListener]="deleteFromCart"></app-product-details>
 </div>
-<app-product-details *ngIf="selectedProduct != null" [product]="selectedProduct"
-                     [quantity]="selectedProductQuantityInCart"
-                     [closeListener]="closeProductDetails" [addToCartListener]="addToCart"
-                     [deleteFromCartListener]="deleteFromCart"></app-product-details>

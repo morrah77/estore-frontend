@@ -9,22 +9,28 @@ import {isLoggedInGuard} from "./is-logged-in.guard";
 import {SignInOrRegisterComponent} from "./sign-in-or-register/sign-in-or-register.component";
 import {userInfoResolver} from "./user-info.resolver";
 import {ProductDetailsComponent} from "./product-details/product-details.component";
+import {CatalogComponent} from "./catalog/catalog.component";
 
 export const routes: Routes = [
-  {path: 'home', component: HomeComponent, resolve: {userInfo: userInfoResolver},
-    // children: [
-    //   {path: 'products/:id', component: ProductDetailsComponent, outlet: 'popup'}
-    // ]
+  {path: '', component: HomeComponent, resolve: {userInfo: userInfoResolver},
+    children: [
+      {path: 'home', component: CatalogComponent},
+      // {path: 'product', outlet: 'popup', children: [
+      //   {path: ':id', component: ProductDetailsComponent},
+      // ]},
+      {path: 'about', component: StaticComponent},
+      {path: 'contacts', component: StaticComponent},
+      {path: 'orders', component: OrdersComponent, canActivate: [isLoggedInGuard]},
+      {path: 'cart', component: CartComponent},
+      {path: 'sign-in', component: SignInOrRegisterComponent},
+      {path: 'sign-out', component: SignInOrRegisterComponent},
+      {path: 'profile', component: UserProfileComponent, canActivate: [isLoggedInGuard]},
+      {path: 'privacy-policy', component: StaticComponent},
+      {path: 'terms-of-service', component: StaticComponent},
+      {path: '', redirectTo: '/home', pathMatch: "full"},
+    ]
   },
-  {path: 'about', component: StaticComponent, resolve: {userInfo: userInfoResolver}},
-  {path: 'contacts', component: StaticComponent, resolve: {userInfo: userInfoResolver}},
-  {path: 'orders', component: OrdersComponent, canActivate: [isLoggedInGuard], resolve: {userInfo: userInfoResolver}},
-  {path: 'cart', component: CartComponent, resolve: {userInfo: userInfoResolver}},
-  {path: 'sign-in', component: SignInOrRegisterComponent, resolve: {userInfo: userInfoResolver}},
-  {path: 'sign-out', component: SignInOrRegisterComponent, resolve: {userInfo: userInfoResolver}},
-  {path: 'profile', component: UserProfileComponent, canActivate: [isLoggedInGuard], resolve: {userInfo: userInfoResolver}},
-  {path: 'privacy-policy', component: StaticComponent, resolve: {userInfo: userInfoResolver}},
-  {path: 'terms-of-service', component: StaticComponent, resolve: {userInfo: userInfoResolver}},
+
   {path: '', redirectTo: '/home', pathMatch: "full"},
   {path: '**', component: PageNotFoundComponent},
 ];
