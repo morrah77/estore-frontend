@@ -12,6 +12,9 @@
 @color-white: #FFFFFF;
 @color-white-semi-transparent: #FFFFFFDD;
 
+@color-error: #FF0000;
+@color-success: #00FF00;
+
 @border-width-thick: 2px;
 @border-width-thin: 1px;
 
@@ -71,4 +74,11 @@
   width: 100%;
   float: none;
   clear: both;
+}
+
+.required {
+  &:after {
+    content: "*";
+    color: @color-error;
+  }
 }

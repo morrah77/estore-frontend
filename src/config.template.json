@@ -7,5 +7,10 @@
       "clientId": "your_Google_app_client_id",
       "scopes": "openid profile email"
     }
+  },
+  "payments": {
+    "stripe": {
+      "apiKey": "pk_test_123"
+    }
   }
 }

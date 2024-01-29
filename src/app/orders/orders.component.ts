@@ -26,7 +26,7 @@ export class OrdersComponent {
   }
 
   getAllOrders() {
-    this.service.getOrders()
+    this.service.getOrders(null, null, 'date_created', 'desc')
       .subscribe(res => {
         this.orders = res
       })

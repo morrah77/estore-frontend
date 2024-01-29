@@ -1,0 +1,39 @@
+@import "../common";
+.container {
+  .controls {
+    .text_style_level1;
+    text-align: center;
+    button {
+      min-width: 4 * @unit;
+      min-height: 2 * @unit;
+      margin: @unit;
+      padding: @unit;
+    }
+  }
+  .delivery-info-container {
+    label {
+      .text_style_level1;
+      display: block;
+      text-align: center;
+    }
+    input[type=text] {
+      height: 2 * @unit;
+      width: 95%;
+      .text_style_level1;
+    }
+    .errors {
+      div {
+        color: @color-error;
+      }
+    }
+  }
+  .order_status {
+    .text_style_level1;
+    text-align: center;
+  }
+  .embedded-checkout-container {
+    margin: @half-unit;
+    padding: @unit;
+    background-color: @color-light-gray-semi-transparent;
+  }
+}

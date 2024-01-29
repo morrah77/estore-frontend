@@ -7,5 +7,10 @@ export interface Config {
       clientId: string;
       scopes: string;
     }
+  },
+  payments: {
+    stripe: {
+      apiKey: string
+    }
   }
 }
