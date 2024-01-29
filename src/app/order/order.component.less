@@ -1,0 +1,53 @@
+@import "../common";
+.container {
+  .border-hard;
+  margin: @unit;
+  padding: 2 * @unit;
+  .order_head_container {
+    display: block flex;
+    flex-flow: row nowrap;
+    & * {
+      flex: 1 1 auto;
+    }
+  }
+  .products_head {
+    text-align: center;
+  }
+  .order_products_container {
+    .border-hard;
+    margin: @half-unit;
+    padding: @unit;
+    .product_container {
+      display: block flex;
+      .border-hard;
+      margin: @half-unit;
+      padding: @half-unit;
+      & * {
+        flex: 1 1 auto;
+      }
+      .main-image-container {
+        .border-light;
+        flex: 1 2 min-content;
+        img .main {
+          object-fit: contain;
+          width: 100%;
+          .border-light
+        }
+      }
+      .product_info_container {
+        flex: 2 1 60%;
+        padding-left: @unit;
+      }
+      .controls {
+        .text_style_level1;
+        text-align: center;
+        button {
+          min-width: 4 * @unit;
+          min-height: 2 * @unit;
+          margin: @unit;
+          padding: @unit;
+        }
+      }
+    }
+  }
+}

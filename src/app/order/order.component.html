@@ -1,12 +1,31 @@
 <div class="container" (click)="clickListener(order.id)">
-  <h4 class="title">{{orderTitle}}</h4>
-  <div class="total-items">Total items: {{totalItems}}</div>
-  <div *ngFor="let entity of order.products">
-    <h5>{{entity.productName}}</h5>
-    <div class="quantity">Quantity: {{entity.quantity}}</div>
-    <div class="total-price">Total price: ${{entity.totalPrice}}</div>
-    <div class="controls">
-      <button [disabled]="!entity.inStock" (click)="buyAgainListener(entity.productId)">Buy it again</button>
+  <div class="order_head_container">
+    <div class="order_date">Order date: {{order.dateCreated*1000 | date}}</div>
+    <div class="order_total_price">Total price: {{order.totalPrice | currency}}</div>
+    <div class="order_status">Status: {{order.status}}</div>
+  </div>
+  <div class="order_head_container">
+    <div class="delivery_info">Delivery info: {{order.deliveryInfo}}</div>
+    <div class="total_items">Total items: {{totalItems}}</div>
+    <div class="filler">&nbsp;</div>
+  </div>
+  <div class="products_head">Ordered products</div>
+  <div class="order_products_container">
+    <div *ngFor="let entity of order.products" class="product_container">
+
+      <div class="main-image-container">
+        <img class="main" [src]="getProductImage(entity.productId)" alt="{{entity.productName}}">
+      </div>
+
+      <div class="product_info_container">
+        <h5>{{entity.productName}}</h5>
+        <div class="quantity">Quantity: {{entity.quantity}}</div>
+        <div class="total-price">Total price: {{entity.totalPrice | currency}}</div>
+      </div>
+
+      <div class="controls">
+        <button [disabled]="!entity.inStock" (click)="buyAgainListener(entity.productId)">Buy it again</button>
+      </div>
     </div>
   </div>
 </div>

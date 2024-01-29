@@ -1,4 +1,4 @@
 <div class="container">
-  <app-order *ngFor="let order of orders" [order]="order" [clickListener]="orderClickListener"
+  <app-order *ngFor="let order of orders" [order]="order" [products]="products" [clickListener]="orderClickListener"
   [buyAgainListener]="buyProductAgainListener"></app-order>
 </div>
