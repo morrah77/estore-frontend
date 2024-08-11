@@ -139,21 +139,28 @@ export class BackendService {
     }
   }
 
-  getProducts(): Observable<Product[]> {
-    return this.client.get<Product[]>(`${this.apiUrl}/products`)
+  getProducts(offset: number = 0, limit: number = 5, categoryIds: number[] = [], phrase: string = ''): Observable<Product[]> {
+    let query: string = ''
+    if (categoryIds.length) {
+      query += `&categoryIds=${categoryIds.join(',')}`
+    }
+    if (phrase.length) {
+      query += `&search=${phrase}`
+    }
+    return this.client.get<Product[]>(`${this.apiUrl}/products?limit=${limit}&offset=${offset}${query}`)
   }
 
   getCategories(): Observable<Category[]> {
     return this.client.get<Category[]>(`${this.apiUrl}/categories`)
   }
 
-  getProductsInCategory(categoryId: number): Observable<Product[]> {
-    return this.client.get<Product[]>(`${this.apiUrl}/products?categoryIds=${categoryId}`)
-  }
-
-  searchProducts(phrase: string): Observable<Product[]> {
-    return this.client.get<Product[]>(`${this.apiUrl}/products?search=${phrase}`)
-  }
+  // getProductsInCategory(categoryId: number, offset: number = 0, limit: number = 5): Observable<Product[]> {
+  //   return this.client.get<Product[]>(`${this.apiUrl}/products?categoryIds=${categoryId}&limit=${limit}&offset=${offset}`)
+  // }
+  //
+  // searchProducts(phrase: string, offset: number = 0, limit: number = 5): Observable<Product[]> {
+  //   return this.client.get<Product[]>(`${this.apiUrl}/products?search=${phrase}&limit=${limit}&offset=${offset}`)
+  // }
 
   getProduct(id: number): Observable<Product> {
     return this.client.get<Product>(`${this.apiUrl}/products/${id}`)

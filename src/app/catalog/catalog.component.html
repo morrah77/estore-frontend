@@ -1,9 +1,11 @@
 <div class="container">
-  <app-catalog-header [categories]="categories" [categoryClickListener]="selectCategory"
+  <app-catalog-header [categories]="categories" [selectedCategoryIds]="selectedCategoryIds"
+                      [categoryClickListener]="selectCategory"
                     [allCategoriesClickListener]="getAllProducts" [searchInputListener]="search"></app-catalog-header>
   <div class="products">
     <app-product *ngFor="let item of products" [product]="item" [clickListener]="getProductDetails"></app-product>
   </div>
+  <div class="progress_indicator" *ngIf="productRequestInProgress">Loading...</div>
   <app-product-details *ngIf="selectedProduct != null" [product]="selectedProduct"
                        [quantity]="selectedProductQuantityInCart"
                        [closeListener]="closeProductDetails" [addToCartListener]="addToCart"
